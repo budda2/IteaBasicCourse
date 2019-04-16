@@ -1,0 +1,191 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        xmlns:viewmodel="clr-namespace:Calculator.ViewModel"
+        Title="Calculator" Height="600" Width="450">
+
+    <Window.DataContext>
+        <viewmodel:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style x:Key="Marginable">
+            <Setter Property="Control.FontFamily" Value="Verdana" />
+            <Setter Property="Control.FontSize" Value="23" />
+            <Setter Property="Control.Background" Value="Black" />
+            <Setter Property="Control.Foreground" Value="White" />
+            <Setter Property="Control.Margin" Value="15" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0"
+            Content="{Binding Path=Text}"
+               FontFamily="Arial"
+               FontSize="24"
+               FontWeight="Bold"
+               HorizontalAlignment="Right"    
+               Style="{StaticResource Marginable}"
+               />
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button 
+                Grid.Row="0" 
+                Grid.Column="0"
+                Command="{Binding Path=SevenCommand}"
+                Style="{StaticResource Marginable}">
+                7
+            </Button>
+            <Button 
+                Grid.Row="0" 
+                Grid.Column="1"
+                                Command="{Binding Path=EightCommand}"
+                Style="{StaticResource Marginable}">
+                8
+            </Button>
+            <Button 
+                Grid.Row="0" 
+                Grid.Column="2"
+                                Command="{Binding Path=NineCommand}"
+                Style="{StaticResource Marginable}">
+                9
+            </Button>
+            <Button 
+                Grid.Row="0" 
+                Grid.Column="3"
+                Margin="15"
+                Command="{Binding Path=PlusCommand}">
+                +
+            </Button>
+            
+            <!--lsuig-->
+            <Button 
+                Grid.Row="1" 
+                Grid.Column="0"
+                Margin="15"
+                Command="{Binding Path=FourCommand}">
+                4
+            </Button>
+            <Button 
+                Grid.Row="1" 
+                Grid.Column="1"
+                Margin="15"
+                Command="{Binding Path=FiveCommand}">
+                5
+            </Button>
+            <Button 
+                Grid.Row="1" 
+                Grid.Column="2"
+                Margin="15"
+                Command="{Binding Path=SixCommand}">
+                6
+            </Button>
+            <Button 
+                Grid.Row="1" 
+                Grid.Column="3"
+                Margin="15"
+                Command="{Binding Path=MinusCommand}">
+                -
+            </Button>
+
+            <!--lsuig-->
+            <Button 
+                Grid.Row="2" 
+                Grid.Column="0"
+                Margin="15"
+                Command="{Binding Path=OneCommand}">
+                1
+            </Button>
+            <Button 
+                Grid.Row="2" 
+                Grid.Column="1"
+                Margin="15"
+                Command="{Binding Path=TwoCommand}">
+                2
+            </Button>
+            <Button 
+                Grid.Row="2" 
+                Grid.Column="2"
+                Margin="15"
+                Command="{Binding Path=ThreeCommand}">
+                3
+            </Button>
+            <Button 
+                Grid.Row="2" 
+                Grid.Column="3"
+                Margin="15"
+                Command="{Binding Path=MultiplyCommand}">
+                *
+            </Button>
+
+            <!--lsuig-->
+
+            <Button 
+                Grid.Row="3" 
+                Grid.Column="0"
+                Margin="15"
+                Command="{Binding Path=CalculateCommand}">
+                =
+            </Button>
+            <Button 
+                Grid.Row="3" 
+                Grid.Column="1"
+                Margin="15"
+                Command="{Binding Path=ZeroCommand}">
+                0
+            </Button>
+            <Button 
+                Grid.Row="3" 
+                Grid.Column="2"
+                Margin="15"
+                Command="{Binding Path=DotCommand}">
+                .
+            </Button>
+            <Button 
+                Grid.Row="3" 
+                Grid.Column="3"
+                Margin="15"
+                Command="{Binding Path=DivideCommand}">
+                /
+            </Button>
+
+            <!--lsuig-->
+            <Button 
+                Grid.Row="4" 
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="15"
+                Command="{Binding Path=CleanupCommand}">
+                C
+            </Button>
+            <Button 
+                Grid.Row="4" 
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                Margin="15"
+                Command="{Binding Path=RemoveLasEnteredSymbolCommand}">
+                ←
+            </Button>
+
+        </Grid>
+   </Grid>
+</Window>
